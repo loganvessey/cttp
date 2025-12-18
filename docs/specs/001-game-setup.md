@@ -1,6 +1,7 @@
 # Game Setup: The lobby for creation of new games.
 
 | Spec Status | Target Milestone | Last Updated |
+| :--- | :--- | :--- |
 | **Draft** | Milestone 2 (MVP) | 2025-12-18 |
 
 ## 1. The "Why" (User Value)
