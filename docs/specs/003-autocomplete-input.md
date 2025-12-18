@@ -2,7 +2,7 @@
 
 | Spec Status | Target Milestone | Last Updated |
 | :--- | :--- | :--- |
-| **Approved** | MVP | 2025-12-18 |
+| **Released** | MVP | 2025-12-18 |
 
 ## 1. The Problem
 * **Ambiguity:** Users typing "Jones" or "Martinez" get frustrated by "Which one?" errors.
