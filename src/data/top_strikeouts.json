@@ -1,0 +1,602 @@
+[
+  {
+    "name":"Nolan Ryan",
+    "stat":5714,
+    "rank":1,
+    "normalized":"nolan ryan"
+  },
+  {
+    "name":"Randy Johnson",
+    "stat":4875,
+    "rank":2,
+    "normalized":"randy johnson"
+  },
+  {
+    "name":"Roger Clemens",
+    "stat":4672,
+    "rank":3,
+    "normalized":"roger clemens"
+  },
+  {
+    "name":"Steve Carlton",
+    "stat":4136,
+    "rank":4,
+    "normalized":"steve carlton"
+  },
+  {
+    "name":"Bert Blyleven",
+    "stat":3701,
+    "rank":5,
+    "normalized":"bert blyleven"
+  },
+  {
+    "name":"Tom Seaver",
+    "stat":3640,
+    "rank":6,
+    "normalized":"tom seaver"
+  },
+  {
+    "name":"Don Sutton",
+    "stat":3574,
+    "rank":7,
+    "normalized":"don sutton"
+  },
+  {
+    "name":"Gaylord Perry",
+    "stat":3534,
+    "rank":8,
+    "normalized":"gaylord perry"
+  },
+  {
+    "name":"Walter Johnson",
+    "stat":3509,
+    "rank":9,
+    "normalized":"walter johnson"
+  },
+  {
+    "name":"Greg Maddux",
+    "stat":3371,
+    "rank":10,
+    "normalized":"greg maddux"
+  },
+  {
+    "name":"Phil Niekro",
+    "stat":3342,
+    "rank":11,
+    "normalized":"phil niekro"
+  },
+  {
+    "name":"Justin Verlander",
+    "stat":3198,
+    "rank":12,
+    "normalized":"justin verlander"
+  },
+  {
+    "name":"Max Scherzer",
+    "stat":3193,
+    "rank":13,
+    "normalized":"max scherzer"
+  },
+  {
+    "name":"Fergie Jenkins",
+    "stat":3192,
+    "rank":14,
+    "normalized":"fergie jenkins"
+  },
+  {
+    "name":"Pedro Martinez",
+    "stat":3154,
+    "rank":15,
+    "normalized":"pedro martinez"
+  },
+  {
+    "name":"Bob Gibson",
+    "stat":3117,
+    "rank":16,
+    "normalized":"bob gibson"
+  },
+  {
+    "name":"Curt Schilling",
+    "stat":3116,
+    "rank":17,
+    "normalized":"curt schilling"
+  },
+  {
+    "name":"CC Sabathia",
+    "stat":3093,
+    "rank":18,
+    "normalized":"cc sabathia"
+  },
+  {
+    "name":"John Smoltz",
+    "stat":3084,
+    "rank":19,
+    "normalized":"john smoltz"
+  },
+  {
+    "name":"Zack Greinke",
+    "stat":2882,
+    "rank":20,
+    "normalized":"zack greinke"
+  },
+  {
+    "name":"Jim Bunning",
+    "stat":2855,
+    "rank":21,
+    "normalized":"jim bunning"
+  },
+  {
+    "name":"Mickey Lolich",
+    "stat":2832,
+    "rank":22,
+    "normalized":"mickey lolich"
+  },
+  {
+    "name":"Mike Mussina",
+    "stat":2813,
+    "rank":23,
+    "normalized":"mike mussina"
+  },
+  {
+    "name":"Clayton Kershaw",
+    "stat":2807,
+    "rank":24,
+    "normalized":"clayton kershaw"
+  },
+  {
+    "name":"Cy Young",
+    "stat":2803,
+    "rank":25,
+    "normalized":"cy young"
+  },
+  {
+    "name":"Frank Tanana",
+    "stat":2773,
+    "rank":26,
+    "normalized":"frank tanana"
+  },
+  {
+    "name":"David Cone",
+    "stat":2668,
+    "rank":27,
+    "normalized":"david cone"
+  },
+  {
+    "name":"Chuck Finley",
+    "stat":2610,
+    "rank":28,
+    "normalized":"chuck finley"
+  },
+  {
+    "name":"Tom Glavine",
+    "stat":2607,
+    "rank":29,
+    "normalized":"tom glavine"
+  },
+  {
+    "name":"Warren Spahn",
+    "stat":2583,
+    "rank":30,
+    "normalized":"warren spahn"
+  },
+  {
+    "name":"Bob Feller",
+    "stat":2581,
+    "rank":31,
+    "normalized":"bob feller"
+  },
+  {
+    "name":"Tim Keefe",
+    "stat":2564,
+    "rank":32,
+    "normalized":"tim keefe"
+  },
+  {
+    "name":"Cole Hamels",
+    "stat":2560,
+    "rank":33,
+    "normalized":"cole hamels"
+  },
+  {
+    "name":"Jerry Koosman",
+    "stat":2556,
+    "rank":34,
+    "normalized":"jerry koosman"
+  },
+  {
+    "name":"Javier Vazquez",
+    "stat":2536,
+    "rank":35,
+    "normalized":"javier vazquez"
+  },
+  {
+    "name":"Bartolo Colon",
+    "stat":2535,
+    "rank":36,
+    "normalized":"bartolo colon"
+  },
+  {
+    "name":"Felix Hernandez",
+    "stat":2524,
+    "rank":37,
+    "normalized":"felix hernandez"
+  },
+  {
+    "name":"A. J. Burnett",
+    "stat":2513,
+    "rank":38,
+    "normalized":"a j burnett"
+  },
+  {
+    "name":"Christy Mathewson",
+    "stat":2507,
+    "rank":39,
+    "normalized":"christy mathewson"
+  },
+  {
+    "name":"Jon Lester",
+    "stat":2488,
+    "rank":40,
+    "normalized":"jon lester"
+  },
+  {
+    "name":"Don Drysdale",
+    "stat":2486,
+    "rank":41,
+    "normalized":"don drysdale"
+  },
+  {
+    "name":"Jack Morris",
+    "stat":2478,
+    "rank":42,
+    "normalized":"jack morris"
+  },
+  {
+    "name":"Mark Langston",
+    "stat":2464,
+    "rank":43,
+    "normalized":"mark langston"
+  },
+  {
+    "name":"Jim Kaat",
+    "stat":2461,
+    "rank":44,
+    "normalized":"jim kaat"
+  },
+  {
+    "name":"Sam McDowell",
+    "stat":2453,
+    "rank":45,
+    "normalized":"sam mcdowell"
+  },
+  {
+    "name":"Andy Pettitte",
+    "stat":2448,
+    "rank":46,
+    "normalized":"andy pettitte"
+  },
+  {
+    "name":"Jamie Moyer",
+    "stat":2441,
+    "rank":47,
+    "normalized":"jamie moyer"
+  },
+  {
+    "name":"Luis Tiant",
+    "stat":2416,
+    "rank":48,
+    "normalized":"luis tiant"
+  },
+  {
+    "name":"Dennis Eckersley",
+    "stat":2401,
+    "rank":49,
+    "normalized":"dennis eckersley"
+  },
+  {
+    "name":"Kevin Brown",
+    "stat":2397,
+    "rank":50,
+    "normalized":"kevin brown"
+  },
+  {
+    "name":"Sandy Koufax",
+    "stat":2396,
+    "rank":51,
+    "normalized":"sandy koufax"
+  },
+  {
+    "name":"Charlie Hough",
+    "stat":2362,
+    "rank":52,
+    "normalized":"charlie hough"
+  },
+  {
+    "name":"Robin Roberts",
+    "stat":2357,
+    "rank":53,
+    "normalized":"robin roberts"
+  },
+  {
+    "name":"Early Wynn",
+    "stat":2334,
+    "rank":54,
+    "normalized":"early wynn"
+  },
+  {
+    "name":"Rube Waddell",
+    "stat":2316,
+    "rank":55,
+    "normalized":"rube waddell"
+  },
+  {
+    "name":"Juan Marichal",
+    "stat":2303,
+    "rank":56,
+    "normalized":"juan marichal"
+  },
+  {
+    "name":"John Lackey",
+    "stat":2294,
+    "rank":57,
+    "normalized":"john lackey"
+  },
+  {
+    "name":"Dwight Gooden",
+    "stat":2293,
+    "rank":58,
+    "normalized":"dwight gooden"
+  },
+  {
+    "name":"Lefty Grove",
+    "stat":2266,
+    "rank":59,
+    "normalized":"lefty grove"
+  },
+  {
+    "name":"Eddie Plank",
+    "stat":2246,
+    "rank":60,
+    "normalized":"eddie plank"
+  },
+  {
+    "name":"Tommy John",
+    "stat":2245,
+    "rank":61,
+    "normalized":"tommy john"
+  },
+  {
+    "name":"James Shields",
+    "stat":2234,
+    "rank":62,
+    "normalized":"james shields"
+  },
+  {
+    "name":"Jim Palmer",
+    "stat":2212,
+    "rank":63,
+    "normalized":"jim palmer"
+  },
+  {
+    "name":"Jake Peavy",
+    "stat":2207,
+    "rank":64,
+    "normalized":"jake peavy"
+  },
+  {
+    "name":"David Wells",
+    "stat":2201,
+    "rank":65,
+    "normalized":"david wells"
+  },
+  {
+    "name":"Pete Alexander",
+    "stat":2198,
+    "rank":66,
+    "normalized":"pete alexander"
+  },
+  {
+    "name":"Vida Blue",
+    "stat":2175,
+    "rank":67,
+    "normalized":"vida blue"
+  },
+  {
+    "name":"Camilo Pascual",
+    "stat":2167,
+    "rank":68,
+    "normalized":"camilo pascual"
+  },
+  {
+    "name":"Tim Wakefield",
+    "stat":2156,
+    "rank":69,
+    "normalized":"tim wakefield"
+  },
+  {
+    "name":"Dennis Martinez",
+    "stat":2149,
+    "rank":70,
+    "normalized":"dennis martinez"
+  },
+  {
+    "name":"Adam Wainwright",
+    "stat":2147,
+    "rank":71,
+    "normalized":"adam wainwright"
+  },
+  {
+    "name":"Roy Halladay",
+    "stat":2117,
+    "rank":72,
+    "normalized":"roy halladay"
+  },
+  {
+    "name":"Kevin Millwood",
+    "stat":2083,
+    "rank":73,
+    "normalized":"kevin millwood"
+  },
+  {
+    "name":"Bobo Newsom",
+    "stat":2082,
+    "rank":74,
+    "normalized":"bobo newsom"
+  },
+  {
+    "name":"Tim Hudson",
+    "stat":2080,
+    "rank":75,
+    "normalized":"tim hudson"
+  },
+  {
+    "name":"David Price",
+    "stat":2076,
+    "rank":76,
+    "normalized":"david price"
+  },
+  {
+    "name":"Ryan Dempster",
+    "stat":2075,
+    "rank":77,
+    "normalized":"ryan dempster"
+  },
+  {
+    "name":"Fernando Valenzuela",
+    "stat":2074,
+    "rank":78,
+    "normalized":"fernando valenzuela"
+  },
+  {
+    "name":"Chris Sale",
+    "stat":2064,
+    "rank":79,
+    "normalized":"chris sale"
+  },
+  {
+    "name":"Madison Bumgarner",
+    "stat":2060,
+    "rank":80,
+    "normalized":"madison bumgarner"
+  },
+  {
+    "name":"Dazzy Vance",
+    "stat":2045,
+    "rank":81,
+    "normalized":"dazzy vance"
+  },
+  {
+    "name":"Rick Reuschel",
+    "stat":2015,
+    "rank":82,
+    "normalized":"rick reuschel"
+  },
+  {
+    "name":"Orel Hershiser",
+    "stat":2014,
+    "rank":83,
+    "normalized":"orel hershiser"
+  },
+  {
+    "name":"Dan Haren",
+    "stat":2013,
+    "rank":84,
+    "normalized":"dan haren"
+  },
+  {
+    "name":"Catfish Hunter",
+    "stat":2012,
+    "rank":85,
+    "normalized":"catfish hunter"
+  },
+  {
+    "name":"Andy Benes",
+    "stat":2000,
+    "rank":86,
+    "normalized":"andy benes"
+  },
+  {
+    "name":"Billy Pierce",
+    "stat":1999,
+    "rank":87,
+    "normalized":"billy pierce"
+  },
+  {
+    "name":"Kevin Appier",
+    "stat":1994,
+    "rank":88,
+    "normalized":"kevin appier"
+  },
+  {
+    "name":"Johan Santana",
+    "stat":1988,
+    "rank":89,
+    "normalized":"johan santana"
+  },
+  {
+    "name":"Red Ruffing",
+    "stat":1987,
+    "rank":90,
+    "normalized":"red ruffing"
+  },
+  {
+    "name":"John Clarkson",
+    "stat":1978,
+    "rank":91,
+    "normalized":"john clarkson"
+  },
+  {
+    "name":"Ervin Santana",
+    "stat":1978,
+    "rank":92,
+    "normalized":"ervin santana"
+  },
+  {
+    "name":"Livan Hernandez",
+    "stat":1976,
+    "rank":93,
+    "normalized":"livan hernandez"
+  },
+  {
+    "name":"Al Leiter",
+    "stat":1974,
+    "rank":94,
+    "normalized":"al leiter"
+  },
+  {
+    "name":"Bob Welch",
+    "stat":1969,
+    "rank":95,
+    "normalized":"bob welch"
+  },
+  {
+    "name":"Kenny Rogers",
+    "stat":1968,
+    "rank":96,
+    "normalized":"kenny rogers"
+  },
+  {
+    "name":"Whitey Ford",
+    "stat":1956,
+    "rank":97,
+    "normalized":"whitey ford"
+  },
+  {
+    "name":"Bobby Witt",
+    "stat":1955,
+    "rank":98,
+    "normalized":"bobby witt"
+  },
+  {
+    "name":"Amos Rusie",
+    "stat":1950,
+    "rank":99,
+    "normalized":"amos rusie"
+  },
+  {
+    "name":"Danny Darwin",
+    "stat":1942,
+    "rank":100,
+    "normalized":"danny darwin"
+  }
+]
