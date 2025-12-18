@@ -1,107 +1,134 @@
 import { useState } from 'react'
 import Scoreboard from './components/Scoreboard'
 import Ledger from './components/Ledger'
-import topHitsData from './data/top_hits.json' // 1. Load the Real Data
+import SetupScreen from './components/SetupScreen' // Import the new screen
+import topHitsData from './data/top_hits.json'
 
 function App() {
+  // --- APP STATE (Is game running?) ---
+  const [gameStarted, setGameStarted] = useState(false);
+  
   // --- GAME STATE ---
+  const [players, setPlayers] = useState([]);
+  
+  // Turn Management
+  const [turnIndex, setTurnIndex] = useState(0); // Index in the array (0, 1, 2)
+  const [direction, setDirection] = useState(1); // 1 = Forward, -1 = Backward (Snake)
+
   const [inputValue, setInputValue] = useState("");
   const [feedbackMessage, setFeedbackMessage] = useState("Enter a player name to start");
-  
-  // Players (For now, we just edit Player 1's score to prove it works)
-  const [players, setPlayers] = useState([
-    { id: 1, name: "Test Player", score: 0, strikes: 0, isOut: false }
-  ]);
-  const activePlayerId = 1; // Hardcoded for Milestone 1
-
-  // The Board State
   const [correctGuesses, setCorrectGuesses] = useState([]);
   const [missedGuesses, setMissedGuesses] = useState([]);
-  const [alreadyGuessedNames, setAlreadyGuessedNames] = useState(new Set()); // To track duplicates
+  const [alreadyGuessedNames, setAlreadyGuessedNames] = useState(new Set());
+
+  // --- START GAME HANDLER ---
+  const handleStartGame = (initialPlayers) => {
+    setPlayers(initialPlayers);
+    setGameStarted(true);
+    setFeedbackMessage(`Player 1 (${initialPlayers[0].name}), you're up!`);
+  };
 
   // --- THE LOGIC ENGINE ---
   const handleGuess = (e) => {
-    e.preventDefault(); // Stop the page from refreshing
-    
-    // 1. Clean the input
+    e.preventDefault();
+    if (!inputValue.trim()) return;
+
+    // 1. Current Player Info
+    const currentPlayer = players[turnIndex];
+    if (currentPlayer.isOut) return; // Safety check
+
     const rawInput = inputValue.trim();
-    if (!rawInput) return;
     const normalizedInput = rawInput.toLowerCase().replace('.', '').replace('-', ' ');
 
-    // 2. Check for Duplicates
+    // 2. Duplicate Check
     if (alreadyGuessedNames.has(normalizedInput)) {
       setFeedbackMessage(`⚠️ Already guessed: ${rawInput}`);
       setInputValue("");
       return;
     }
 
-    // 3. Find the player in our Database
-    // We search the 'normalized' field in JSON to match our input
+    // 3. Process Guess
     const foundPlayer = topHitsData.find(p => p.normalized === normalizedInput);
+    let points = 0;
+    let strikes = 0;
+    let message = "";
+
+    setAlreadyGuessedNames(prev => new Set(prev).add(normalizedInput));
 
     if (foundPlayer) {
-      // --- SCENARIO A: Player Exists in DB ---
-      
-      // Mark as used so we can't guess him again
-      setAlreadyGuessedNames(prev => new Set(prev).add(normalizedInput));
-
       if (foundPlayer.rank <= 100) {
-        // HIT (Rank 1-100)
-        handleCorrectGuess(foundPlayer);
+        // HIT
+        points = foundPlayer.rank; // Points = Rank
+        setCorrectGuesses(prev => [...prev, foundPlayer]);
+        message = `✅ Correct! ${foundPlayer.name} is #${foundPlayer.rank}`;
       } else {
-        // MISS (Rank 101-200)
-        handleMissedGuess(foundPlayer);
+        // MISS (101-200)
+        strikes = 1;
+        setMissedGuesses(prev => [...prev, foundPlayer]);
+        message = `❌ Ouch! ${foundPlayer.name} is #${foundPlayer.rank}`;
       }
     } else {
-      // --- SCENARIO B: Player NOT in DB ---
-      handleInvalidGuess(rawInput);
+      // WHIFF
+      strikes = 1;
+      message = `🚫 "${rawInput}" is not on the list!`;
     }
 
-    // 4. Reset Input
+    // 4. Update Score & Check Elimination
+    const updatedPlayers = [...players];
+    const p = updatedPlayers[turnIndex];
+    p.score += points;
+    p.strikes += strikes;
+    if (p.strikes >= 3) p.isOut = true;
+    
+    setPlayers(updatedPlayers);
+    setFeedbackMessage(message);
     setInputValue("");
+
+    // 5. PASS THE TURN (The Snake Logic)
+    advanceTurn(updatedPlayers, turnIndex, direction);
   };
 
-  // --- HELPER FUNCTIONS ---
-
-  const handleCorrectGuess = (player) => {
-    setCorrectGuesses(prev => [...prev, player]); // Add to Green Ledger
-    setFeedbackMessage(`✅ Correct! ${player.name} is #${player.rank}`);
+  // --- THE SNAKE ALGORITHM ---
+  const advanceTurn = (currentPlayers, currentIndex, currentDirection) => {
     
-    // Update Score (Rank = Points)
-    updateActivePlayer(player.rank, 0); 
+    // Check if Game Over (Only 0 or 1 player left standing)
+    const activeCount = currentPlayers.filter(p => !p.isOut).length;
+    if (activeCount === 0) { // Or 1, depending on rules. Let's play til death.
+        setFeedbackMessage("GAME OVER! Everyone is out.");
+        return;
+    }
+
+    let nextIndex = currentIndex + currentDirection;
+    let nextDirection = currentDirection;
+
+    // Did we hit the walls?
+    if (nextIndex >= currentPlayers.length) {
+      // Hit the end -> Bounce back
+      nextIndex = currentPlayers.length - 1; 
+      nextDirection = -1; 
+      // If we are at the end, the same player goes again (Double Turn), 
+      // UNLESS they are out. Logic handles this in the recursion below.
+    } else if (nextIndex < 0) {
+      // Hit the start -> Bounce forward
+      nextIndex = 0;
+      nextDirection = 1;
+    }
+
+    // RECURSION: If the next player is OUT, keep moving in that direction
+    if (currentPlayers[nextIndex].isOut) {
+      // Be careful of infinite loops if everyone is out!
+      // But we checked activeCount above, so we are safe.
+      advanceTurn(currentPlayers, nextIndex, nextDirection); // Recursively find next
+    } else {
+      // We found a valid player! Commit state.
+      setTurnIndex(nextIndex);
+      setDirection(nextDirection);
+    }
   };
 
-  const handleMissedGuess = (player) => {
-    setMissedGuesses(prev => [...prev, player]); // Add to Red Ledger
-    setFeedbackMessage(`❌ Ouch! ${player.name} is #${player.rank} (Outside Top 100)`);
-    
-    // Update Strikes
-    updateActivePlayer(0, 1);
-  };
-
-  const handleInvalidGuess = (name) => {
-    setFeedbackMessage(`🚫 "${name}" is not on the list!`);
-    
-    // Update Strikes
-    updateActivePlayer(0, 1);
-  };
-
-  const updateActivePlayer = (pointsToAdd, strikesToAdd) => {
-    setPlayers(currentPlayers => {
-      return currentPlayers.map(p => {
-        if (p.id === activePlayerId) {
-          const newStrikes = p.strikes + strikesToAdd;
-          return {
-            ...p,
-            score: p.score + pointsToAdd,
-            strikes: newStrikes,
-            isOut: newStrikes >= 3 // Auto-calculate OUT status
-          };
-        }
-        return p;
-      });
-    });
-  };
+  if (!gameStarted) {
+    return <SetupScreen onStartGame={handleStartGame} />;
+  }
 
   return (
     <div style={{ fontFamily: 'Arial', padding: '40px', maxWidth: '800px', margin: '0 auto' }}>
@@ -110,14 +137,8 @@ function App() {
       <div style={{ textAlign: 'center', marginBottom: '30px' }}>
         <h1>Top 100 Career Hits</h1>
         
-        {/* The Feedback Banner */}
-        <div style={{ 
-          padding: '10px', 
-          backgroundColor: '#f3f4f6', 
-          marginBottom: '10px',
-          borderRadius: '4px',
-          fontWeight: 'bold'
-        }}>
+        {/* Feedback Banner */}
+        <div style={{ padding: '10px', backgroundColor: '#f3f4f6', marginBottom: '10px', borderRadius: '4px', fontWeight: 'bold'}}>
           {feedbackMessage}
         </div>
 
@@ -127,23 +148,16 @@ function App() {
             type="text" 
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Enter player name..." 
-            disabled={players[0].isOut} // Disable input if player is out
-            style={{ 
-              padding: '15px', 
-              fontSize: '1.2rem', 
-              width: '100%', 
-              maxWidth: '400px', 
-              borderRadius: '8px', 
-              border: '1px solid #ccc' 
-            }} 
+            placeholder={`Player ${players[turnIndex]?.name}, enter guess...`} 
+            disabled={players.every(p => p.isOut)}
+            style={{ padding: '15px', fontSize: '1.2rem', width: '100%', maxWidth: '400px', borderRadius: '8px', border: '1px solid #ccc' }} 
             autoFocus
           />
         </form>
       </div>
 
-      {/* SCOREBOARD */}
-      <Scoreboard players={players} activePlayerId={activePlayerId} />
+      {/* SCOREBOARD (Pass the ID of the current turn's player) */}
+      <Scoreboard players={players} activePlayerId={players[turnIndex]?.id} />
 
       {/* LEDGER */}
       <Ledger correctGuesses={correctGuesses} missedGuesses={missedGuesses} />
