@@ -48,7 +48,7 @@ FROM Batting b
 JOIN People p ON b.playerID = p.playerID
 GROUP BY p.playerID
 ORDER BY stat DESC
-LIMIT 100;
+LIMIT 200;
 """
 
 # Query 2: Top 100 Career Home Runs
@@ -60,7 +60,7 @@ FROM Batting b
 JOIN People p ON b.playerID = p.playerID
 GROUP BY p.playerID
 ORDER BY stat DESC
-LIMIT 100;
+LIMIT 200;
 """
 
 # Query 3: Top 100 Career Strikeouts (Pitching)
@@ -72,7 +72,7 @@ FROM Pitching pit
 JOIN People p ON pit.playerID = p.playerID
 GROUP BY p.playerID
 ORDER BY stat DESC
-LIMIT 100;
+LIMIT 200;
 """
 
 # --- EXECUTE ---
