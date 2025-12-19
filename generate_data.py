@@ -1,84 +1,101 @@
 import sqlite3
-import pandas as pd
+import json
 import os
 
-# 1. SETUP: Define file paths
-# Make sure this matches the filename you downloaded
-DB_FILE = 'lahman_1871-2022.sqlite' 
-OUTPUT_DIR = 'src/data'
+# --- CONFIGURATION ---
+DB_PATH = "lahman_1871-2022.sqlite"
+OUTPUT_DIR = "src/data"
 
-# Check if DB exists
-if not os.path.exists(DB_FILE):
-    print(f"❌ Error: Could not find {DB_FILE}. Did you move it to the cttp root folder?")
-    exit()
+def get_connection():
+    return sqlite3.connect(DB_PATH)
 
-# Connect to the database
-conn = sqlite3.connect(DB_FILE)
+def run_query(query):
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute(query)
+    results = cursor.fetchall()
+    conn.close()
+    return results
 
-def generate_category(category_name, sql_query, filename):
-    print(f"Processing: {category_name}...")
+# --- DATA GENERATORS ---
+
+def generate_top_hits():
+    # 1. Fetch Top 500 Players (Hits)
+    # We fetch 500 so we can handle "Misses" (Rank 101-500)
+    query = """
+    SELECT 
+        p.nameFirst || ' ' || p.nameLast AS name,
+        SUM(b.H) AS stat
+    FROM Batting b
+    JOIN People p ON b.playerID = p.playerID
+    GROUP BY p.playerID
+    ORDER BY stat DESC
+    LIMIT 500;
+    """
     
-    # Run the SQL query
-    try:
-        df = pd.read_sql_query(sql_query, conn)
-    except Exception as e:
-        print(f"❌ SQL Error in {category_name}: {e}")
-        return
-
-    # Add a 'rank' column (1, 2, 3...)
-    df['rank'] = df.index + 1
+    raw_data = run_query(query)
     
-    # Create 'normalized' column for easier checking (lowercase, no periods)
-    # e.g. "Ken Griffey Jr." -> "ken griffey jr"
-    df['normalized'] = df['name'].str.lower().str.replace('.', '', regex=False)
+    # 2. Format as JSON with Ranks
+    json_data = []
+    for index, row in enumerate(raw_data):
+        rank = index + 1
+        name = row[0]
+        stat = row[1]
+        
+        # Create a "normalized" version for searching (lowercase, no dots)
+        # e.g. "Ken Griffey Jr." -> "ken griffey jr"
+        normalized = name.lower().replace('.', '').replace('-', ' ')
+        
+        json_data.append({
+            "rank": rank,
+            "name": name,
+            "stat": stat,
+            "normalized": normalized
+        })
+        
+    return json_data
 
-    # Save to JSON in the React folder
-    output_path = f"{OUTPUT_DIR}/{filename}"
-    df.to_json(output_path, orient='records', indent=2)
-    print(f"✅ Saved {filename} ({len(df)} records)")
+def generate_master_list():
+    # 3. Fetch "Universe of Players" (Top 5000 by Games Played)
+    # This populates the Autocomplete dropdown so it's not a cheat sheet.
+    # We verify against the Batting table to ensure they are batters (since this is a Hits game)
+    query = """
+    SELECT 
+        p.nameFirst || ' ' || p.nameLast AS name,
+        SUM(b.G) AS games
+    FROM Batting b
+    JOIN People p ON b.playerID = p.playerID
+    GROUP BY p.playerID
+    ORDER BY games DESC
+    LIMIT 5000;
+    """
+    
+    raw_data = run_query(query)
+    
+    # Just a simple list of names for the dropdown
+    # We remove duplicates just in case (e.g. slight data variances)
+    names = [row[0] for row in raw_data]
+    unique_names = sorted(list(set(names)))
+    
+    return unique_names
 
-# --- THE QUERIES ---
+# --- EXECUTION ---
 
-# Query 1: Top 100 Career Hits
-hits_query = """
-SELECT 
-    p.nameFirst || ' ' || p.nameLast AS name,
-    SUM(b.H) AS stat
-FROM Batting b
-JOIN People p ON b.playerID = p.playerID
-GROUP BY p.playerID
-ORDER BY stat DESC
-LIMIT 200;
-"""
+if __name__ == "__main__":
+    # Ensure output directory exists
+    if not os.path.exists(OUTPUT_DIR):
+        os.makedirs(OUTPUT_DIR)
 
-# Query 2: Top 100 Career Home Runs
-hr_query = """
-SELECT 
-    p.nameFirst || ' ' || p.nameLast AS name,
-    SUM(b.HR) AS stat
-FROM Batting b
-JOIN People p ON b.playerID = p.playerID
-GROUP BY p.playerID
-ORDER BY stat DESC
-LIMIT 200;
-"""
+    # 1. Generate Game Data (The Answers)
+    top_hits = generate_top_hits()
+    hits_path = os.path.join(OUTPUT_DIR, "top_hits.json")
+    with open(hits_path, "w") as f:
+        json.dump(top_hits, f, indent=2)
+    print(f"✅ Generated {len(top_hits)} records in {hits_path}")
 
-# Query 3: Top 100 Career Strikeouts (Pitching)
-k_query = """
-SELECT 
-    p.nameFirst || ' ' || p.nameLast AS name,
-    SUM(pit.SO) AS stat
-FROM Pitching pit
-JOIN People p ON pit.playerID = p.playerID
-GROUP BY p.playerID
-ORDER BY stat DESC
-LIMIT 200;
-"""
-
-# --- EXECUTE ---
-generate_category("Hits", hits_query, "top_hits.json")
-generate_category("Home Runs", hr_query, "top_hr.json")
-generate_category("Pitching Strikeouts", k_query, "top_strikeouts.json")
-
-conn.close()
-print("\n🎉 Data generation complete! Check src/data/")
+    # 2. Generate Master List (The Dropdown Options)
+    master_list = generate_master_list()
+    master_path = os.path.join(OUTPUT_DIR, "all_players.json")
+    with open(master_path, "w") as f:
+        json.dump(master_list, f, indent=2)
+    print(f"✅ Generated {len(master_list)} records in {master_path}")

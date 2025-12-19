@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import Scoreboard from './components/Scoreboard'
 import Ledger from './components/Ledger'
-import SetupScreen from './components/SetupScreen' // Import the new screen
+import SetupScreen from './components/SetupScreen'
+import PlayerInput from './components/PlayerInput' // <--- Add this line
 import topHitsData from './data/top_hits.json'
 
 function App() {
@@ -15,7 +16,6 @@ function App() {
   const [turnIndex, setTurnIndex] = useState(0); // Index in the array (0, 1, 2)
   const [direction, setDirection] = useState(1); // 1 = Forward, -1 = Backward (Snake)
 
-  const [inputValue, setInputValue] = useState("");
   const [feedbackMessage, setFeedbackMessage] = useState("Enter a player name to start");
   const [correctGuesses, setCorrectGuesses] = useState([]);
   const [missedGuesses, setMissedGuesses] = useState([]);
@@ -29,15 +29,16 @@ function App() {
   };
 
   // --- THE LOGIC ENGINE ---
-  const handleGuess = (e) => {
-    e.preventDefault();
-    if (!inputValue.trim()) return;
+  const handleGuess = (guessInput) => { // Accepts argument now
+    // e.preventDefault(); <-- Remove this (handled in child)
+    
+    if (!guessInput || !guessInput.trim()) return;
 
     // 1. Current Player Info
     const currentPlayer = players[turnIndex];
-    if (currentPlayer.isOut) return; // Safety check
+    if (currentPlayer.isOut) return;
 
-    const rawInput = inputValue.trim();
+    const rawInput = guessInput.trim(); // Use argument
     const normalizedInput = rawInput.toLowerCase().replace('.', '').replace('-', ' ');
 
     // 2. Duplicate Check
@@ -142,18 +143,14 @@ function App() {
           {feedbackMessage}
         </div>
 
-        {/* INPUT FORM */}
-        <form onSubmit={handleGuess}>
-          <input 
-            type="text" 
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            placeholder={`Player ${players[turnIndex]?.name}, enter guess...`} 
-            disabled={players.every(p => p.isOut)}
-            style={{ padding: '15px', fontSize: '1.2rem', width: '100%', maxWidth: '400px', borderRadius: '8px', border: '1px solid #ccc' }} 
-            autoFocus
-          />
-        </form>
+{/* INPUT AREA */}
+<div style={{ marginBottom: '30px', position: 'relative', zIndex: 50 }}>
+    <PlayerInput 
+      onGuess={handleGuess}
+      currentPlayerName={players[turnIndex]?.name}
+      isDisabled={players.every(p => p.isOut)}
+    />
+</div>
       </div>
 
       {/* SCOREBOARD (Pass the ID of the current turn's player) */}
