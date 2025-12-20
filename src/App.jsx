@@ -32,63 +32,61 @@ function App() {
 const handleGuess = (guessInput) => {
     if (!guessInput) return;
 
-    // 1. Current Player Info
     const currentPlayer = players[turnIndex];
     if (currentPlayer.isOut) return;
 
-    // --- BUG FIX: REMOVED NORMALIZATION ---
-    // Since input comes from the dropdown, it matches 'top_hits.json' exactly.
-    // We compare against p.name (which includes years), not p.normalized.
-    
-    // Check if it's a Hit (Rank 1-100)
+    // 1. Validation Logic (Strict Match)
     const hit = topHitsData.find(p => p.name === guessInput);
+    const isRepeat = correctGuesses.some(g => g.name === guessInput);
 
-    // Check if it's already guessed
-    if (correctGuesses.some(g => g.name === guessInput)) {
-        setFeedbackMessage(`REPEAT: ${guessInput} already taken!`);
-        return;
+    if (isRepeat) {
+      setFeedbackMessage(`REPEAT: ${guessInput} already taken!`);
+      return;
     }
-    
+
+    // 2. Create copy of players to update state
+    const updatedPlayers = [...players];
+    const activePlayer = { ...updatedPlayers[turnIndex] };
+
     if (hit) {
-      // ... (Rest of your HIT logic) ...
-      const points = 100 - hit.rank + 1; // Example scoring
+      // --- HIT LOGIC ---
+      const points = 100 - hit.rank + 1;
+      activePlayer.score += points;
+      
       setCorrectGuesses([...correctGuesses, hit]);
       setFeedbackMessage(`HIT! ${hit.name} #${hit.rank}`);
-      // Update score...
     } else {
-      // ... (Rest of your MISS/STRIKE logic) ...
-      // For the strike check, we just check if it's NOT a hit
-      // We assume if it came from the dropdown, it's a valid player, just not a winner.
-       setMissedGuesses([...missedGuesses, guessInput]);
-       setFeedbackMessage(`MISS! ${guessInput} is not on the list.`);
-       // Update strikes...
+      // --- MISS LOGIC (Restored) ---
+      activePlayer.strikes += 1;
+      setMissedGuesses([...missedGuesses, guessInput]);
+
+      if (activePlayer.strikes >= 3) {
+        activePlayer.isOut = true;
+        setFeedbackMessage(`STRIKE 3! ${activePlayer.name} is OUT!`);
+      } else {
+        setFeedbackMessage(`MISS! Not on list. Strike ${activePlayer.strikes}.`);
+      }
     }
-    
-    // ... (Turn switching logic) ...
-  
-    // 4. Update Score & Check Elimination
-    const updatedPlayers = [...players];
-    const p = updatedPlayers[turnIndex];
-    p.score += points;
-    p.strikes += strikes;
-    if (p.strikes >= 3) p.isOut = true;
-    
+
+    // 3. Save Player State
+    updatedPlayers[turnIndex] = activePlayer;
     setPlayers(updatedPlayers);
-    setFeedbackMessage(message);
-    setInputValue("");
 
-    // 5. PASS THE TURN (The Snake Logic)
-    advanceTurn(updatedPlayers, turnIndex, direction);
-  };
-
-  // --- THE SNAKE ALGORITHM ---
-  const advanceTurn = (currentPlayers, currentIndex, currentDirection) => {
+    // 4. Switch Turn (Skip Eliminated Players)
+    const allOut = updatedPlayers.every(p => p.isOut);
     
-    // Check if Game Over (Only 0 or 1 player left standing)
-    const activeCount = currentPlayers.filter(p => !p.isOut).length;
-    if (activeCount === 0) { // Or 1, depending on rules. Let's play til death.
-        setFeedbackMessage("GAME OVER! Everyone is out.");
-        return;
+    if (!allOut) {
+        let nextIndex = (turnIndex + 1) % updatedPlayers.length;
+        // Loop until we find a player who is NOT out
+        // (Safety check: break if we loop back to start to prevent infinite loop)
+        let loopCount = 0;
+        while (updatedPlayers[nextIndex].isOut && loopCount < updatedPlayers.length) {
+            nextIndex = (nextIndex + 1) % updatedPlayers.length;
+            loopCount++;
+        }
+        setTurnIndex(nextIndex);
+    } else {
+        setFeedbackMessage("GAME OVER! All players are out.");
     }
 
     let nextIndex = currentIndex + currentDirection;
