@@ -18,14 +18,13 @@ def run_query(query):
     return results
 
 def format_display_name(first, last, start, end):
-    """Standardizes the Name (Year-Year) format"""
     return f"{first} {last} ({start}-{end})"
 
 # --- DATA GENERATORS ---
 
-def generate_top_hits():
-    print("Fetching Top 200 Hits Leaders (with Eras)...")
-    # We now fetch years here too so the Answer Key matches the Dropdown exactly
+def generate_ranked_stats():
+    print("Fetching Global Stats (All Players)...")
+    # REMOVED 'LIMIT 200' -> Now fetching everyone with stats
     query = """
     SELECT 
         p.nameFirst,
@@ -36,8 +35,8 @@ def generate_top_hits():
     FROM Batting b
     JOIN People p ON b.playerID = p.playerID
     GROUP BY p.playerID
-    ORDER BY stat DESC
-    LIMIT 200;
+    HAVING stat IS NOT NULL AND stat > 0
+    ORDER BY stat DESC;
     """
     
     raw_data = run_query(query)
@@ -45,24 +44,19 @@ def generate_top_hits():
     json_data = []
     for index, row in enumerate(raw_data):
         first, last, start, end, stat = row
-        
         display_name = format_display_name(first, last, start, end)
-        
-        # Create a normalized version for potential fuzzy search fallbacks later
-        normalized = f"{first} {last}".lower().replace('.', '').replace('-', ' ')
         
         json_data.append({
             "rank": index + 1,
-            "name": display_name, # Storing "Ty Cobb (1905-1928)" as the answer
-            "stat": stat,
-            "normalized": normalized
+            "name": display_name,
+            "stat": stat
         })
         
     return json_data
 
 def generate_master_list():
-    print("Fetching Master Player List (All with Eras)...")
-    
+    print("Fetching Master Name List...")
+    # This matches the dropdown logic
     query = """
     SELECT 
         p.nameFirst,
@@ -77,15 +71,12 @@ def generate_master_list():
     """
     
     raw_data = run_query(query)
-    
-    # Simple list of strings
     final_list = []
     for row in raw_data:
         first, last, start, end = row
         display_name = format_display_name(first, last, start, end)
         final_list.append(display_name)
 
-    # Sort alphabetically
     return sorted(list(set(final_list)))
 
 # --- EXECUTION ---
@@ -94,14 +85,15 @@ if __name__ == "__main__":
     if not os.path.exists(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
 
-    # 1. Generate Game Data (The Answers)
-    top_hits = generate_top_hits()
-    hits_path = os.path.join(OUTPUT_DIR, "top_hits.json")
-    with open(hits_path, "w") as f:
-        json.dump(top_hits, f, indent=2)
-    print(f"✅ Generated {len(top_hits)} records in {hits_path}")
+    # 1. Generate FULL Ranked Stats (Was 'top_hits.json')
+    ranked_stats = generate_ranked_stats()
+    # Saving as 'ranked_stats.json' to be clear it's everyone
+    stats_path = os.path.join(OUTPUT_DIR, "ranked_stats.json")
+    with open(stats_path, "w") as f:
+        json.dump(ranked_stats, f, indent=2)
+    print(f"✅ Generated {len(ranked_stats)} ranked records in {stats_path}")
 
-    # 2. Generate Master List (The Options)
+    # 2. Generate Dropdown Options
     master_list = generate_master_list()
     master_path = os.path.join(OUTPUT_DIR, "all_players.json")
     with open(master_path, "w") as f:
