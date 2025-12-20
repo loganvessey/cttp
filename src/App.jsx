@@ -53,7 +53,7 @@ function App() {
     // 3. Logic: Hit vs. Miss (Implementing Ticket #6 & #7)
     if (dbHit && dbHit.rank <= 100) {
       // --- HIT (Rank 1-100) ---
-      const points = 100 - dbHit.rank + 1;
+      const points = dbHit.rank;
       activePlayer.score += points;
       
       setCorrectGuesses([...correctGuesses, dbHit]);
