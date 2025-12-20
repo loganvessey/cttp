@@ -3,7 +3,7 @@ import Scoreboard from './components/Scoreboard'
 import Ledger from './components/Ledger'
 import SetupScreen from './components/SetupScreen'
 import PlayerInput from './components/PlayerInput'
-import topHitsData from './data/top_hits.json'
+import topHitsData from './data/ranked_stats.json' // Was top_hits.json
 
 function App() {
   // --- APP STATE (Is game running?) ---
@@ -28,16 +28,17 @@ function App() {
   };
 
   // --- THE LOGIC ENGINE ---
-  const handleGuess = (guessInput) => {
+const handleGuess = (guessInput) => {
     if (!guessInput) return;
 
     const currentPlayer = players[turnIndex];
     if (currentPlayer.isOut) return;
 
-    // 1. Find the player in our "Answer Key" (Top 200)
+    // 1. LOOKUP: Check the FULL database
+    // "topHitsData" is now the massive "ranked_stats.json" list
     const dbHit = topHitsData.find(p => p.name === guessInput);
     
-    // Check for repeats (in either list)
+    // Check repeats
     const isRepeat = correctGuesses.some(g => g.name === guessInput) || 
                      missedGuesses.some(g => g.name === guessInput);
 
@@ -46,52 +47,50 @@ function App() {
       return;
     }
 
-    // 2. Prepare state updates
+    // 2. Prepare State
     const updatedPlayers = [...players];
     const activePlayer = { ...updatedPlayers[turnIndex] };
 
-    // 3. Logic: Hit vs. Miss (Implementing Ticket #6 & #7)
-    if (dbHit && dbHit.rank <= 100) {
-      // --- HIT (Rank 1-100) ---
-      const points = dbHit.rank;
-      activePlayer.score += points;
-      
-      setCorrectGuesses([...correctGuesses, dbHit]);
-      setFeedbackMessage(`HIT! ${dbHit.name} #${dbHit.rank}`);
-      
+    // 3. Scoring Logic
+    if (dbHit) {
+        // Player exists in our records!
+        
+        if (dbHit.rank <= 100) {
+            // --- HIT (Rank 1-100) ---
+            const points = 100 - dbHit.rank + 1;
+            activePlayer.score += points;
+            setCorrectGuesses([...correctGuesses, dbHit]);
+            setFeedbackMessage(`HIT! ${dbHit.name} #${dbHit.rank}`);
+        } else {
+            // --- STRATEGIC MISS (Rank > 100) ---
+            activePlayer.strikes += 1;
+            // Now we ALWAYS have the rich data object
+            setMissedGuesses([...missedGuesses, dbHit]);
+            setFeedbackMessage(`MISS! ${dbHit.name} is #${dbHit.rank} with ${dbHit.stat} hits.`);
+        }
     } else {
-      // --- STRIKE (Rank 101+ OR Not in DB) ---
-      activePlayer.strikes += 1;
-      
-      if (dbHit) {
-        // Strategic Miss (Rank 101-200): Use real data
-        setMissedGuesses([...missedGuesses, dbHit]);
-        setFeedbackMessage(`MISS! ${dbHit.name} is #${dbHit.rank} (Outside Top 100)`);
-      } else {
-        // Pure Miss (Not in DB): Create dummy object
+        // --- EDGE CASE: INVALID PLAYER ---
+        // Player somehow not in stats DB (e.g. Pitcher with 0 hits?)
+        activePlayer.strikes += 1;
         const missObj = { name: guessInput, rank: '-', stat: 0 };
         setMissedGuesses([...missedGuesses, missObj]);
-        setFeedbackMessage(`MISS! ${guessInput} not in Top 200.`);
-      }
+        setFeedbackMessage(`MISS! ${guessInput} has no record.`);
     }
 
-    // 4. Check for Out
+    // 4. Check Out
     if (activePlayer.strikes >= 3) {
       activePlayer.isOut = true;
       setFeedbackMessage(`STRIKE 3! ${activePlayer.name} is OUT!`);
     }
 
-    // 5. Update Player State
+    // 5. Save & Switch
     updatedPlayers[turnIndex] = activePlayer;
     setPlayers(updatedPlayers);
 
-    // 6. Switch Turn (Skip Eliminated Players)
     const allOut = updatedPlayers.every(p => p.isOut);
-    
     if (!allOut) {
         let nextIndex = (turnIndex + 1) % updatedPlayers.length;
         let loopCount = 0;
-        // Loop until we find a player who is NOT out
         while (updatedPlayers[nextIndex].isOut && loopCount < updatedPlayers.length) {
             nextIndex = (nextIndex + 1) % updatedPlayers.length;
             loopCount++;
