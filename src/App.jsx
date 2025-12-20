@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Scoreboard from './components/Scoreboard'
 import Ledger from './components/Ledger'
 import SetupScreen from './components/SetupScreen'
-import PlayerInput from './components/PlayerInput' // <--- Add this line
+import PlayerInput from './components/PlayerInput'
 import topHitsData from './data/top_hits.json'
 
 function App() {
@@ -13,13 +13,12 @@ function App() {
   const [players, setPlayers] = useState([]);
   
   // Turn Management
-  const [turnIndex, setTurnIndex] = useState(0); // Index in the array (0, 1, 2)
-  const [direction, setDirection] = useState(1); // 1 = Forward, -1 = Backward (Snake)
-
+  const [turnIndex, setTurnIndex] = useState(0); 
+  // Note: 'direction' is removed for MVP (Simple Rotation)
+  
   const [feedbackMessage, setFeedbackMessage] = useState("Enter a player name to start");
   const [correctGuesses, setCorrectGuesses] = useState([]);
   const [missedGuesses, setMissedGuesses] = useState([]);
-  const [alreadyGuessedNames, setAlreadyGuessedNames] = useState(new Set());
 
   // --- START GAME HANDLER ---
   const handleStartGame = (initialPlayers) => {
@@ -29,57 +28,70 @@ function App() {
   };
 
   // --- THE LOGIC ENGINE ---
-const handleGuess = (guessInput) => {
+  const handleGuess = (guessInput) => {
     if (!guessInput) return;
 
     const currentPlayer = players[turnIndex];
     if (currentPlayer.isOut) return;
 
-    // 1. Validation Logic (Strict Match)
-    const hit = topHitsData.find(p => p.name === guessInput);
-    const isRepeat = correctGuesses.some(g => g.name === guessInput);
+    // 1. Find the player in our "Answer Key" (Top 200)
+    const dbHit = topHitsData.find(p => p.name === guessInput);
+    
+    // Check for repeats (in either list)
+    const isRepeat = correctGuesses.some(g => g.name === guessInput) || 
+                     missedGuesses.some(g => g.name === guessInput);
 
     if (isRepeat) {
       setFeedbackMessage(`REPEAT: ${guessInput} already taken!`);
       return;
     }
 
-    // 2. Create copy of players to update state
+    // 2. Prepare state updates
     const updatedPlayers = [...players];
     const activePlayer = { ...updatedPlayers[turnIndex] };
 
-    if (hit) {
-      // --- HIT LOGIC ---
-      const points = 100 - hit.rank + 1;
+    // 3. Logic: Hit vs. Miss (Implementing Ticket #6 & #7)
+    if (dbHit && dbHit.rank <= 100) {
+      // --- HIT (Rank 1-100) ---
+      const points = dbHit.rank;
       activePlayer.score += points;
       
-      setCorrectGuesses([...correctGuesses, hit]);
-      setFeedbackMessage(`HIT! ${hit.name} #${hit.rank}`);
+      setCorrectGuesses([...correctGuesses, dbHit]);
+      setFeedbackMessage(`HIT! ${dbHit.name} #${dbHit.rank}`);
+      
     } else {
-      // --- MISS LOGIC (Restored) ---
+      // --- STRIKE (Rank 101+ OR Not in DB) ---
       activePlayer.strikes += 1;
-      setMissedGuesses([...missedGuesses, guessInput]);
-
-      if (activePlayer.strikes >= 3) {
-        activePlayer.isOut = true;
-        setFeedbackMessage(`STRIKE 3! ${activePlayer.name} is OUT!`);
+      
+      if (dbHit) {
+        // Strategic Miss (Rank 101-200): Use real data
+        setMissedGuesses([...missedGuesses, dbHit]);
+        setFeedbackMessage(`MISS! ${dbHit.name} is #${dbHit.rank} (Outside Top 100)`);
       } else {
-        setFeedbackMessage(`MISS! Not on list. Strike ${activePlayer.strikes}.`);
+        // Pure Miss (Not in DB): Create dummy object
+        const missObj = { name: guessInput, rank: '-', stat: 0 };
+        setMissedGuesses([...missedGuesses, missObj]);
+        setFeedbackMessage(`MISS! ${guessInput} not in Top 200.`);
       }
     }
 
-    // 3. Save Player State
+    // 4. Check for Out
+    if (activePlayer.strikes >= 3) {
+      activePlayer.isOut = true;
+      setFeedbackMessage(`STRIKE 3! ${activePlayer.name} is OUT!`);
+    }
+
+    // 5. Update Player State
     updatedPlayers[turnIndex] = activePlayer;
     setPlayers(updatedPlayers);
 
-    // 4. Switch Turn (Skip Eliminated Players)
+    // 6. Switch Turn (Skip Eliminated Players)
     const allOut = updatedPlayers.every(p => p.isOut);
     
     if (!allOut) {
         let nextIndex = (turnIndex + 1) % updatedPlayers.length;
-        // Loop until we find a player who is NOT out
-        // (Safety check: break if we loop back to start to prevent infinite loop)
         let loopCount = 0;
+        // Loop until we find a player who is NOT out
         while (updatedPlayers[nextIndex].isOut && loopCount < updatedPlayers.length) {
             nextIndex = (nextIndex + 1) % updatedPlayers.length;
             loopCount++;
@@ -87,33 +99,6 @@ const handleGuess = (guessInput) => {
         setTurnIndex(nextIndex);
     } else {
         setFeedbackMessage("GAME OVER! All players are out.");
-    }
-
-    let nextIndex = currentIndex + currentDirection;
-    let nextDirection = currentDirection;
-
-    // Did we hit the walls?
-    if (nextIndex >= currentPlayers.length) {
-      // Hit the end -> Bounce back
-      nextIndex = currentPlayers.length - 1; 
-      nextDirection = -1; 
-      // If we are at the end, the same player goes again (Double Turn), 
-      // UNLESS they are out. Logic handles this in the recursion below.
-    } else if (nextIndex < 0) {
-      // Hit the start -> Bounce forward
-      nextIndex = 0;
-      nextDirection = 1;
-    }
-
-    // RECURSION: If the next player is OUT, keep moving in that direction
-    if (currentPlayers[nextIndex].isOut) {
-      // Be careful of infinite loops if everyone is out!
-      // But we checked activeCount above, so we are safe.
-      advanceTurn(currentPlayers, nextIndex, nextDirection); // Recursively find next
-    } else {
-      // We found a valid player! Commit state.
-      setTurnIndex(nextIndex);
-      setDirection(nextDirection);
     }
   };
 
@@ -133,17 +118,17 @@ const handleGuess = (guessInput) => {
           {feedbackMessage}
         </div>
 
-{/* INPUT AREA */}
-<div style={{ marginBottom: '30px', position: 'relative', zIndex: 50 }}>
-    <PlayerInput 
-      onGuess={handleGuess}
-      currentPlayerName={players[turnIndex]?.name}
-      isDisabled={players.every(p => p.isOut)}
-    />
-</div>
+        {/* INPUT AREA */}
+        <div style={{ marginBottom: '30px', position: 'relative', zIndex: 50 }}>
+            <PlayerInput 
+              onGuess={handleGuess}
+              currentPlayerName={players[turnIndex]?.name}
+              isDisabled={players.every(p => p.isOut)}
+            />
+        </div>
       </div>
 
-      {/* SCOREBOARD (Pass the ID of the current turn's player) */}
+      {/* SCOREBOARD */}
       <Scoreboard players={players} activePlayerId={players[turnIndex]?.id} />
 
       {/* LEDGER */}
