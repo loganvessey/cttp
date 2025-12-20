@@ -29,51 +29,43 @@ function App() {
   };
 
   // --- THE LOGIC ENGINE ---
-  const handleGuess = (guessInput) => { // Accepts argument now
-    // e.preventDefault(); <-- Remove this (handled in child)
-    
-    if (!guessInput || !guessInput.trim()) return;
+const handleGuess = (guessInput) => {
+    if (!guessInput) return;
 
     // 1. Current Player Info
     const currentPlayer = players[turnIndex];
     if (currentPlayer.isOut) return;
 
-    const rawInput = guessInput.trim(); // Use argument
-    const normalizedInput = rawInput.toLowerCase().replace('.', '').replace('-', ' ');
+    // --- BUG FIX: REMOVED NORMALIZATION ---
+    // Since input comes from the dropdown, it matches 'top_hits.json' exactly.
+    // We compare against p.name (which includes years), not p.normalized.
+    
+    // Check if it's a Hit (Rank 1-100)
+    const hit = topHitsData.find(p => p.name === guessInput);
 
-    // 2. Duplicate Check
-    if (alreadyGuessedNames.has(normalizedInput)) {
-      setFeedbackMessage(`⚠️ Already guessed: ${rawInput}`);
-      setInputValue("");
-      return;
+    // Check if it's already guessed
+    if (correctGuesses.some(g => g.name === guessInput)) {
+        setFeedbackMessage(`REPEAT: ${guessInput} already taken!`);
+        return;
     }
-
-    // 3. Process Guess
-    const foundPlayer = topHitsData.find(p => p.normalized === normalizedInput);
-    let points = 0;
-    let strikes = 0;
-    let message = "";
-
-    setAlreadyGuessedNames(prev => new Set(prev).add(normalizedInput));
-
-    if (foundPlayer) {
-      if (foundPlayer.rank <= 100) {
-        // HIT
-        points = foundPlayer.rank; // Points = Rank
-        setCorrectGuesses(prev => [...prev, foundPlayer]);
-        message = `✅ Correct! ${foundPlayer.name} is #${foundPlayer.rank}`;
-      } else {
-        // MISS (101-200)
-        strikes = 1;
-        setMissedGuesses(prev => [...prev, foundPlayer]);
-        message = `❌ Ouch! ${foundPlayer.name} is #${foundPlayer.rank}`;
-      }
+    
+    if (hit) {
+      // ... (Rest of your HIT logic) ...
+      const points = 100 - hit.rank + 1; // Example scoring
+      setCorrectGuesses([...correctGuesses, hit]);
+      setFeedbackMessage(`HIT! ${hit.name} #${hit.rank}`);
+      // Update score...
     } else {
-      // WHIFF
-      strikes = 1;
-      message = `🚫 "${rawInput}" is not on the list!`;
+      // ... (Rest of your MISS/STRIKE logic) ...
+      // For the strike check, we just check if it's NOT a hit
+      // We assume if it came from the dropdown, it's a valid player, just not a winner.
+       setMissedGuesses([...missedGuesses, guessInput]);
+       setFeedbackMessage(`MISS! ${guessInput} is not on the list.`);
+       // Update strikes...
     }
-
+    
+    // ... (Turn switching logic) ...
+  
     // 4. Update Score & Check Elimination
     const updatedPlayers = [...players];
     const p = updatedPlayers[turnIndex];
