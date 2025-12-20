@@ -17,38 +17,43 @@ def run_query(query):
     conn.close()
     return results
 
+def format_display_name(first, last, start, end):
+    """Standardizes the Name (Year-Year) format"""
+    return f"{first} {last} ({start}-{end})"
+
 # --- DATA GENERATORS ---
 
 def generate_top_hits():
-    # 1. Fetch Top 500 Players (Hits)
-    # We fetch 500 so we can handle "Misses" (Rank 101-500)
+    print("Fetching Top 200 Hits Leaders (with Eras)...")
+    # We now fetch years here too so the Answer Key matches the Dropdown exactly
     query = """
     SELECT 
-        p.nameFirst || ' ' || p.nameLast AS name,
+        p.nameFirst,
+        p.nameLast,
+        MIN(b.yearID) as start_year,
+        MAX(b.yearID) as end_year,
         SUM(b.H) AS stat
     FROM Batting b
     JOIN People p ON b.playerID = p.playerID
     GROUP BY p.playerID
     ORDER BY stat DESC
-    LIMIT 500;
+    LIMIT 200;
     """
     
     raw_data = run_query(query)
     
-    # 2. Format as JSON with Ranks
     json_data = []
     for index, row in enumerate(raw_data):
-        rank = index + 1
-        name = row[0]
-        stat = row[1]
+        first, last, start, end, stat = row
         
-        # Create a "normalized" version for searching (lowercase, no dots)
-        # e.g. "Ken Griffey Jr." -> "ken griffey jr"
-        normalized = name.lower().replace('.', '').replace('-', ' ')
+        display_name = format_display_name(first, last, start, end)
+        
+        # Create a normalized version for potential fuzzy search fallbacks later
+        normalized = f"{first} {last}".lower().replace('.', '').replace('-', ' ')
         
         json_data.append({
-            "rank": rank,
-            "name": name,
+            "rank": index + 1,
+            "name": display_name, # Storing "Ty Cobb (1905-1928)" as the answer
             "stat": stat,
             "normalized": normalized
         })
@@ -56,33 +61,36 @@ def generate_top_hits():
     return json_data
 
 def generate_master_list():
-    # 3. Fetch "Universe of Players" (Top 5000 by Games Played)
-    # This populates the Autocomplete dropdown so it's not a cheat sheet.
-    # We verify against the Batting table to ensure they are batters (since this is a Hits game)
+    print("Fetching Master Player List (All with Eras)...")
+    
     query = """
     SELECT 
-        p.nameFirst || ' ' || p.nameLast AS name,
-        SUM(b.G) AS games
+        p.nameFirst,
+        p.nameLast,
+        MIN(b.yearID) as start_year,
+        MAX(b.yearID) as end_year
     FROM Batting b
     JOIN People p ON b.playerID = p.playerID
     GROUP BY p.playerID
-    ORDER BY games DESC
-    LIMIT 5000;
+    HAVING SUM(b.G) >= 100
+    ORDER BY p.nameLast, p.nameFirst;
     """
     
     raw_data = run_query(query)
     
-    # Just a simple list of names for the dropdown
-    # We remove duplicates just in case (e.g. slight data variances)
-    names = [row[0] for row in raw_data]
-    unique_names = sorted(list(set(names)))
-    
-    return unique_names
+    # Simple list of strings
+    final_list = []
+    for row in raw_data:
+        first, last, start, end = row
+        display_name = format_display_name(first, last, start, end)
+        final_list.append(display_name)
+
+    # Sort alphabetically
+    return sorted(list(set(final_list)))
 
 # --- EXECUTION ---
 
 if __name__ == "__main__":
-    # Ensure output directory exists
     if not os.path.exists(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
 
@@ -93,9 +101,9 @@ if __name__ == "__main__":
         json.dump(top_hits, f, indent=2)
     print(f"✅ Generated {len(top_hits)} records in {hits_path}")
 
-    # 2. Generate Master List (The Dropdown Options)
+    # 2. Generate Master List (The Options)
     master_list = generate_master_list()
     master_path = os.path.join(OUTPUT_DIR, "all_players.json")
     with open(master_path, "w") as f:
         json.dump(master_list, f, indent=2)
-    print(f"✅ Generated {len(master_list)} records in {master_path}")
+    print(f"✅ Generated {len(master_list)} unique options in {master_path}")

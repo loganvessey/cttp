@@ -1,1201 +1,1201 @@
 [
   {
     "rank": 1,
-    "name": "Pete Rose",
+    "name": "Pete Rose (1963-1986)",
     "stat": 4256,
     "normalized": "pete rose"
   },
   {
     "rank": 2,
-    "name": "Ty Cobb",
+    "name": "Ty Cobb (1905-1928)",
     "stat": 4189,
     "normalized": "ty cobb"
   },
   {
     "rank": 3,
-    "name": "Hank Aaron",
+    "name": "Hank Aaron (1954-1976)",
     "stat": 3771,
     "normalized": "hank aaron"
   },
   {
     "rank": 4,
-    "name": "Stan Musial",
+    "name": "Stan Musial (1941-1963)",
     "stat": 3630,
     "normalized": "stan musial"
   },
   {
     "rank": 5,
-    "name": "Tris Speaker",
+    "name": "Tris Speaker (1907-1928)",
     "stat": 3514,
     "normalized": "tris speaker"
   },
   {
     "rank": 6,
-    "name": "Derek Jeter",
+    "name": "Derek Jeter (1995-2014)",
     "stat": 3465,
     "normalized": "derek jeter"
   },
   {
     "rank": 7,
-    "name": "Cap Anson",
+    "name": "Cap Anson (1871-1897)",
     "stat": 3435,
     "normalized": "cap anson"
   },
   {
     "rank": 8,
-    "name": "Honus Wagner",
+    "name": "Honus Wagner (1897-1917)",
     "stat": 3420,
     "normalized": "honus wagner"
   },
   {
     "rank": 9,
-    "name": "Carl Yastrzemski",
+    "name": "Carl Yastrzemski (1961-1983)",
     "stat": 3419,
     "normalized": "carl yastrzemski"
   },
   {
     "rank": 10,
-    "name": "Albert Pujols",
+    "name": "Albert Pujols (2001-2022)",
     "stat": 3384,
     "normalized": "albert pujols"
   },
   {
     "rank": 11,
-    "name": "Paul Molitor",
+    "name": "Paul Molitor (1978-1998)",
     "stat": 3319,
     "normalized": "paul molitor"
   },
   {
     "rank": 12,
-    "name": "Eddie Collins",
+    "name": "Eddie Collins (1906-1930)",
     "stat": 3315,
     "normalized": "eddie collins"
   },
   {
     "rank": 13,
-    "name": "Willie Mays",
+    "name": "Willie Mays (1951-1973)",
     "stat": 3283,
     "normalized": "willie mays"
   },
   {
     "rank": 14,
-    "name": "Eddie Murray",
+    "name": "Eddie Murray (1977-1997)",
     "stat": 3255,
     "normalized": "eddie murray"
   },
   {
     "rank": 15,
-    "name": "Nap Lajoie",
+    "name": "Nap Lajoie (1896-1916)",
     "stat": 3243,
     "normalized": "nap lajoie"
   },
   {
     "rank": 16,
-    "name": "Cal Ripken",
+    "name": "Cal Ripken (1981-2001)",
     "stat": 3184,
     "normalized": "cal ripken"
   },
   {
     "rank": 17,
-    "name": "Adrian Beltre",
+    "name": "Adrian Beltre (1998-2018)",
     "stat": 3166,
     "normalized": "adrian beltre"
   },
   {
     "rank": 18,
-    "name": "George Brett",
+    "name": "George Brett (1973-1993)",
     "stat": 3154,
     "normalized": "george brett"
   },
   {
     "rank": 19,
-    "name": "Paul Waner",
+    "name": "Paul Waner (1926-1945)",
     "stat": 3152,
     "normalized": "paul waner"
   },
   {
     "rank": 20,
-    "name": "Robin Yount",
+    "name": "Robin Yount (1974-1993)",
     "stat": 3142,
     "normalized": "robin yount"
   },
   {
     "rank": 21,
-    "name": "Tony Gwynn",
+    "name": "Tony Gwynn (1982-2001)",
     "stat": 3141,
     "normalized": "tony gwynn"
   },
   {
     "rank": 22,
-    "name": "Alex Rodriguez",
+    "name": "Alex Rodriguez (1994-2016)",
     "stat": 3115,
     "normalized": "alex rodriguez"
   },
   {
     "rank": 23,
-    "name": "Dave Winfield",
+    "name": "Dave Winfield (1973-1995)",
     "stat": 3110,
     "normalized": "dave winfield"
   },
   {
     "rank": 24,
-    "name": "Ichiro Suzuki",
+    "name": "Ichiro Suzuki (2001-2019)",
     "stat": 3089,
     "normalized": "ichiro suzuki"
   },
   {
     "rank": 25,
-    "name": "Miguel Cabrera",
+    "name": "Miguel Cabrera (2003-2022)",
     "stat": 3088,
     "normalized": "miguel cabrera"
   },
   {
     "rank": 26,
-    "name": "Craig Biggio",
+    "name": "Craig Biggio (1988-2007)",
     "stat": 3060,
     "normalized": "craig biggio"
   },
   {
     "rank": 27,
-    "name": "Rickey Henderson",
+    "name": "Rickey Henderson (1979-2003)",
     "stat": 3055,
     "normalized": "rickey henderson"
   },
   {
     "rank": 28,
-    "name": "Rod Carew",
+    "name": "Rod Carew (1967-1985)",
     "stat": 3053,
     "normalized": "rod carew"
   },
   {
     "rank": 29,
-    "name": "Lou Brock",
+    "name": "Lou Brock (1961-1979)",
     "stat": 3023,
     "normalized": "lou brock"
   },
   {
     "rank": 30,
-    "name": "Rafael Palmeiro",
+    "name": "Rafael Palmeiro (1986-2005)",
     "stat": 3020,
     "normalized": "rafael palmeiro"
   },
   {
     "rank": 31,
-    "name": "Wade Boggs",
+    "name": "Wade Boggs (1982-1999)",
     "stat": 3010,
     "normalized": "wade boggs"
   },
   {
     "rank": 32,
-    "name": "Al Kaline",
+    "name": "Al Kaline (1953-1974)",
     "stat": 3007,
     "normalized": "al kaline"
   },
   {
     "rank": 33,
-    "name": "Roberto Clemente",
+    "name": "Roberto Clemente (1955-1972)",
     "stat": 3000,
     "normalized": "roberto clemente"
   },
   {
     "rank": 34,
-    "name": "Sam Rice",
+    "name": "Sam Rice (1915-1934)",
     "stat": 2987,
     "normalized": "sam rice"
   },
   {
     "rank": 35,
-    "name": "Sam Crawford",
+    "name": "Sam Crawford (1899-1917)",
     "stat": 2961,
     "normalized": "sam crawford"
   },
   {
     "rank": 36,
-    "name": "Frank Robinson",
+    "name": "Frank Robinson (1956-1976)",
     "stat": 2943,
     "normalized": "frank robinson"
   },
   {
     "rank": 37,
-    "name": "Jake Beckley",
+    "name": "Jake Beckley (1888-1907)",
     "stat": 2938,
     "normalized": "jake beckley"
   },
   {
     "rank": 38,
-    "name": "Barry Bonds",
+    "name": "Barry Bonds (1986-2007)",
     "stat": 2935,
     "normalized": "barry bonds"
   },
   {
     "rank": 39,
-    "name": "Willie Keeler",
+    "name": "Willie Keeler (1892-1910)",
     "stat": 2932,
     "normalized": "willie keeler"
   },
   {
     "rank": 40,
-    "name": "Rogers Hornsby",
+    "name": "Rogers Hornsby (1915-1937)",
     "stat": 2930,
     "normalized": "rogers hornsby"
   },
   {
     "rank": 41,
-    "name": "Al Simmons",
+    "name": "Al Simmons (1924-1944)",
     "stat": 2927,
     "normalized": "al simmons"
   },
   {
     "rank": 42,
-    "name": "Zack Wheat",
+    "name": "Zack Wheat (1909-1927)",
     "stat": 2884,
     "normalized": "zack wheat"
   },
   {
     "rank": 43,
-    "name": "Frankie Frisch",
+    "name": "Frankie Frisch (1919-1937)",
     "stat": 2880,
     "normalized": "frankie frisch"
   },
   {
     "rank": 44,
-    "name": "Omar Vizquel",
+    "name": "Omar Vizquel (1989-2012)",
     "stat": 2877,
     "normalized": "omar vizquel"
   },
   {
     "rank": 45,
-    "name": "Mel Ott",
+    "name": "Mel Ott (1926-1947)",
     "stat": 2876,
     "normalized": "mel ott"
   },
   {
     "rank": 46,
-    "name": "Babe Ruth",
+    "name": "Babe Ruth (1914-1935)",
     "stat": 2873,
     "normalized": "babe ruth"
   },
   {
     "rank": 47,
-    "name": "Harold Baines",
+    "name": "Harold Baines (1980-2001)",
     "stat": 2866,
     "normalized": "harold baines"
   },
   {
     "rank": 48,
-    "name": "Jesse Burkett",
+    "name": "Jesse Burkett (1890-1905)",
     "stat": 2850,
     "normalized": "jesse burkett"
   },
   {
     "rank": 49,
-    "name": "Brooks Robinson",
+    "name": "Brooks Robinson (1955-1977)",
     "stat": 2848,
     "normalized": "brooks robinson"
   },
   {
     "rank": 50,
-    "name": "Ivan Rodriguez",
+    "name": "Ivan Rodriguez (1991-2011)",
     "stat": 2844,
     "normalized": "ivan rodriguez"
   },
   {
     "rank": 51,
-    "name": "Charlie Gehringer",
+    "name": "Charlie Gehringer (1924-1942)",
     "stat": 2839,
     "normalized": "charlie gehringer"
   },
   {
     "rank": 52,
-    "name": "George Sisler",
+    "name": "George Sisler (1915-1930)",
     "stat": 2812,
     "normalized": "george sisler"
   },
   {
     "rank": 53,
-    "name": "Ken Griffey",
+    "name": "Ken Griffey (1989-2010)",
     "stat": 2781,
     "normalized": "ken griffey"
   },
   {
     "rank": 54,
-    "name": "Andre Dawson",
+    "name": "Andre Dawson (1976-1996)",
     "stat": 2774,
     "normalized": "andre dawson"
   },
   {
     "rank": 55,
-    "name": "Johnny Damon",
+    "name": "Johnny Damon (1995-2012)",
     "stat": 2769,
     "normalized": "johnny damon"
   },
   {
     "rank": 56,
-    "name": "Vada Pinson",
+    "name": "Vada Pinson (1958-1975)",
     "stat": 2757,
     "normalized": "vada pinson"
   },
   {
     "rank": 57,
-    "name": "Luke Appling",
+    "name": "Luke Appling (1930-1950)",
     "stat": 2749,
     "normalized": "luke appling"
   },
   {
     "rank": 58,
-    "name": "Al Oliver",
+    "name": "Al Oliver (1968-1985)",
     "stat": 2743,
     "normalized": "al oliver"
   },
   {
     "rank": 59,
-    "name": "Goose Goslin",
+    "name": "Goose Goslin (1921-1938)",
     "stat": 2735,
     "normalized": "goose goslin"
   },
   {
     "rank": 60,
-    "name": "Tony Perez",
+    "name": "Tony Perez (1964-1986)",
     "stat": 2732,
     "normalized": "tony perez"
   },
   {
     "rank": 61,
-    "name": "Chipper Jones",
+    "name": "Chipper Jones (1993-2012)",
     "stat": 2726,
     "normalized": "chipper jones"
   },
   {
     "rank": 62,
-    "name": "Carlos Beltran",
+    "name": "Carlos Beltran (1998-2017)",
     "stat": 2725,
     "normalized": "carlos beltran"
   },
   {
     "rank": 63,
-    "name": "Roberto Alomar",
+    "name": "Roberto Alomar (1988-2004)",
     "stat": 2724,
     "normalized": "roberto alomar"
   },
   {
     "rank": 64,
-    "name": "Lou Gehrig",
+    "name": "Lou Gehrig (1923-1939)",
     "stat": 2721,
     "normalized": "lou gehrig"
   },
   {
     "rank": 65,
-    "name": "Rusty Staub",
+    "name": "Rusty Staub (1963-1985)",
     "stat": 2716,
     "normalized": "rusty staub"
   },
   {
     "rank": 66,
-    "name": "Bill Buckner",
+    "name": "Bill Buckner (1969-1990)",
     "stat": 2715,
     "normalized": "bill buckner"
   },
   {
     "rank": 67,
-    "name": "Dave Parker",
+    "name": "Dave Parker (1973-1991)",
     "stat": 2712,
     "normalized": "dave parker"
   },
   {
     "rank": 68,
-    "name": "Billy Williams",
+    "name": "Billy Williams (1959-1976)",
     "stat": 2711,
     "normalized": "billy williams"
   },
   {
     "rank": 69,
-    "name": "Doc Cramer",
+    "name": "Doc Cramer (1929-1948)",
     "stat": 2705,
     "normalized": "doc cramer"
   },
   {
     "rank": 70,
-    "name": "Gary Sheffield",
+    "name": "Gary Sheffield (1988-2009)",
     "stat": 2689,
     "normalized": "gary sheffield"
   },
   {
     "rank": 71,
-    "name": "Fred Clarke",
+    "name": "Fred Clarke (1894-1915)",
     "stat": 2678,
     "normalized": "fred clarke"
   },
   {
     "rank": 72,
-    "name": "Luis Aparicio",
+    "name": "Luis Aparicio (1956-1973)",
     "stat": 2677,
     "normalized": "luis aparicio"
   },
   {
     "rank": 73,
-    "name": "Max Carey",
+    "name": "Max Carey (1910-1929)",
     "stat": 2665,
     "normalized": "max carey"
   },
   {
     "rank": 74,
-    "name": "George Davis",
+    "name": "George Davis (1890-1909)",
     "stat": 2665,
     "normalized": "george davis"
   },
   {
     "rank": 75,
-    "name": "Nellie Fox",
+    "name": "Nellie Fox (1947-1965)",
     "stat": 2663,
     "normalized": "nellie fox"
   },
   {
     "rank": 76,
-    "name": "Harry Heilmann",
+    "name": "Harry Heilmann (1914-1932)",
     "stat": 2660,
     "normalized": "harry heilmann"
   },
   {
     "rank": 77,
-    "name": "Ted Williams",
+    "name": "Ted Williams (1939-1960)",
     "stat": 2654,
     "normalized": "ted williams"
   },
   {
     "rank": 78,
-    "name": "Lave Cross",
+    "name": "Lave Cross (1887-1907)",
     "stat": 2651,
     "normalized": "lave cross"
   },
   {
     "rank": 79,
-    "name": "Jimmie Foxx",
+    "name": "Jimmie Foxx (1925-1945)",
     "stat": 2646,
     "normalized": "jimmie foxx"
   },
   {
     "rank": 80,
-    "name": "Robinson Cano",
+    "name": "Robinson Cano (2005-2022)",
     "stat": 2639,
     "normalized": "robinson cano"
   },
   {
     "rank": 81,
-    "name": "Jim O'Rourke",
+    "name": "Jim O'Rourke (1872-1904)",
     "stat": 2639,
     "normalized": "jim o'rourke"
   },
   {
     "rank": 82,
-    "name": "Rabbit Maranville",
+    "name": "Rabbit Maranville (1912-1935)",
     "stat": 2605,
     "normalized": "rabbit maranville"
   },
   {
     "rank": 83,
-    "name": "Tim Raines",
+    "name": "Tim Raines (1979-2002)",
     "stat": 2605,
     "normalized": "tim raines"
   },
   {
     "rank": 84,
-    "name": "Steve Garvey",
+    "name": "Steve Garvey (1969-1987)",
     "stat": 2599,
     "normalized": "steve garvey"
   },
   {
     "rank": 85,
-    "name": "Ed Delahanty",
+    "name": "Ed Delahanty (1888-1903)",
     "stat": 2597,
     "normalized": "ed delahanty"
   },
   {
     "rank": 86,
-    "name": "Luis Gonzalez",
+    "name": "Luis Gonzalez (1990-2008)",
     "stat": 2591,
     "normalized": "luis gonzalez"
   },
   {
     "rank": 87,
-    "name": "Vladimir Guerrero",
+    "name": "Vladimir Guerrero (1996-2011)",
     "stat": 2590,
     "normalized": "vladimir guerrero"
   },
   {
     "rank": 88,
-    "name": "Julio Franco",
+    "name": "Julio Franco (1982-2007)",
     "stat": 2586,
     "normalized": "julio franco"
   },
   {
     "rank": 89,
-    "name": "Reggie Jackson",
+    "name": "Reggie Jackson (1967-1987)",
     "stat": 2584,
     "normalized": "reggie jackson"
   },
   {
     "rank": 90,
-    "name": "Ernie Banks",
+    "name": "Ernie Banks (1953-1971)",
     "stat": 2583,
     "normalized": "ernie banks"
   },
   {
     "rank": 91,
-    "name": "Richie Ashburn",
+    "name": "Richie Ashburn (1948-1962)",
     "stat": 2574,
     "normalized": "richie ashburn"
   },
   {
     "rank": 92,
-    "name": "Manny Ramirez",
+    "name": "Manny Ramirez (1993-2011)",
     "stat": 2574,
     "normalized": "manny ramirez"
   },
   {
     "rank": 93,
-    "name": "Willie Davis",
+    "name": "Willie Davis (1960-1979)",
     "stat": 2561,
     "normalized": "willie davis"
   },
   {
     "rank": 94,
-    "name": "Steve Finley",
+    "name": "Steve Finley (1989-2007)",
     "stat": 2548,
     "normalized": "steve finley"
   },
   {
     "rank": 95,
-    "name": "George Van Haltren",
+    "name": "George Van Haltren (1887-1903)",
     "stat": 2544,
     "normalized": "george van haltren"
   },
   {
     "rank": 96,
-    "name": "Garret Anderson",
+    "name": "Garret Anderson (1994-2010)",
     "stat": 2529,
     "normalized": "garret anderson"
   },
   {
     "rank": 97,
-    "name": "Heinie Manush",
+    "name": "Heinie Manush (1923-1939)",
     "stat": 2524,
     "normalized": "heinie manush"
   },
   {
     "rank": 98,
-    "name": "Todd Helton",
+    "name": "Todd Helton (1997-2013)",
     "stat": 2519,
     "normalized": "todd helton"
   },
   {
     "rank": 99,
-    "name": "Joe Morgan",
+    "name": "Joe Morgan (1963-1984)",
     "stat": 2517,
     "normalized": "joe morgan"
   },
   {
     "rank": 100,
-    "name": "Buddy Bell",
+    "name": "Buddy Bell (1972-1989)",
     "stat": 2514,
     "normalized": "buddy bell"
   },
   {
     "rank": 101,
-    "name": "Jimmy Ryan",
+    "name": "Jimmy Ryan (1885-1903)",
     "stat": 2513,
     "normalized": "jimmy ryan"
   },
   {
     "rank": 102,
-    "name": "Mickey Vernon",
+    "name": "Mickey Vernon (1939-1960)",
     "stat": 2495,
     "normalized": "mickey vernon"
   },
   {
     "rank": 103,
-    "name": "Fred McGriff",
+    "name": "Fred McGriff (1986-2004)",
     "stat": 2490,
     "normalized": "fred mcgriff"
   },
   {
     "rank": 104,
-    "name": "David Ortiz",
+    "name": "David Ortiz (1997-2016)",
     "stat": 2472,
     "normalized": "david ortiz"
   },
   {
     "rank": 105,
-    "name": "Ted Simmons",
+    "name": "Ted Simmons (1968-1988)",
     "stat": 2472,
     "normalized": "ted simmons"
   },
   {
     "rank": 106,
-    "name": "Joe Medwick",
+    "name": "Joe Medwick (1932-1948)",
     "stat": 2471,
     "normalized": "joe medwick"
   },
   {
     "rank": 107,
-    "name": "Bobby Abreu",
+    "name": "Bobby Abreu (1996-2014)",
     "stat": 2470,
     "normalized": "bobby abreu"
   },
   {
     "rank": 108,
-    "name": "Frank Thomas",
+    "name": "Frank Thomas (1990-2008)",
     "stat": 2468,
     "normalized": "frank thomas"
   },
   {
     "rank": 109,
-    "name": "Roger Connor",
+    "name": "Roger Connor (1880-1897)",
     "stat": 2467,
     "normalized": "roger connor"
   },
   {
     "rank": 110,
-    "name": "Harry Hooper",
+    "name": "Harry Hooper (1909-1925)",
     "stat": 2466,
     "normalized": "harry hooper"
   },
   {
     "rank": 111,
-    "name": "Bill Dahlen",
+    "name": "Bill Dahlen (1891-1911)",
     "stat": 2461,
     "normalized": "bill dahlen"
   },
   {
     "rank": 112,
-    "name": "Jeff Kent",
+    "name": "Jeff Kent (1992-2008)",
     "stat": 2461,
     "normalized": "jeff kent"
   },
   {
     "rank": 113,
-    "name": "Ozzie Smith",
+    "name": "Ozzie Smith (1978-1996)",
     "stat": 2460,
     "normalized": "ozzie smith"
   },
   {
     "rank": 114,
-    "name": "Lloyd Waner",
+    "name": "Lloyd Waner (1927-1945)",
     "stat": 2459,
     "normalized": "lloyd waner"
   },
   {
     "rank": 115,
-    "name": "Jimmy Rollins",
+    "name": "Jimmy Rollins (2000-2016)",
     "stat": 2455,
     "normalized": "jimmy rollins"
   },
   {
     "rank": 116,
-    "name": "Torii Hunter",
+    "name": "Torii Hunter (1997-2015)",
     "stat": 2452,
     "normalized": "torii hunter"
   },
   {
     "rank": 117,
-    "name": "Jim Rice",
+    "name": "Jim Rice (1974-1989)",
     "stat": 2452,
     "normalized": "jim rice"
   },
   {
     "rank": 118,
-    "name": "Red Schoendienst",
+    "name": "Red Schoendienst (1945-1963)",
     "stat": 2449,
     "normalized": "red schoendienst"
   },
   {
     "rank": 119,
-    "name": "Dwight Evans",
+    "name": "Dwight Evans (1972-1991)",
     "stat": 2446,
     "normalized": "dwight evans"
   },
   {
     "rank": 120,
-    "name": "Mark Grace",
+    "name": "Mark Grace (1988-2003)",
     "stat": 2445,
     "normalized": "mark grace"
   },
   {
     "rank": 121,
-    "name": "Kenny Lofton",
+    "name": "Kenny Lofton (1991-2007)",
     "stat": 2428,
     "normalized": "kenny lofton"
   },
   {
     "rank": 122,
-    "name": "Pie Traynor",
+    "name": "Pie Traynor (1920-1937)",
     "stat": 2416,
     "normalized": "pie traynor"
   },
   {
     "rank": 123,
-    "name": "Mickey Mantle",
+    "name": "Mickey Mantle (1951-1968)",
     "stat": 2415,
     "normalized": "mickey mantle"
   },
   {
     "rank": 124,
-    "name": "Sammy Sosa",
+    "name": "Sammy Sosa (1989-2007)",
     "stat": 2408,
     "normalized": "sammy sosa"
   },
   {
     "rank": 125,
-    "name": "Miguel Tejada",
+    "name": "Miguel Tejada (1997-2013)",
     "stat": 2407,
     "normalized": "miguel tejada"
   },
   {
     "rank": 126,
-    "name": "Stuffy McInnis",
+    "name": "Stuffy McInnis (1909-1927)",
     "stat": 2405,
     "normalized": "stuffy mcinnis"
   },
   {
     "rank": 127,
-    "name": "Nick Markakis",
+    "name": "Nick Markakis (2006-2020)",
     "stat": 2388,
     "normalized": "nick markakis"
   },
   {
     "rank": 128,
-    "name": "Ryne Sandberg",
+    "name": "Ryne Sandberg (1981-1997)",
     "stat": 2386,
     "normalized": "ryne sandberg"
   },
   {
     "rank": 129,
-    "name": "Enos Slaughter",
+    "name": "Enos Slaughter (1938-1959)",
     "stat": 2383,
     "normalized": "enos slaughter"
   },
   {
     "rank": 130,
-    "name": "Chili Davis",
+    "name": "Chili Davis (1981-1999)",
     "stat": 2380,
     "normalized": "chili davis"
   },
   {
     "rank": 131,
-    "name": "Edd Roush",
+    "name": "Edd Roush (1913-1931)",
     "stat": 2376,
     "normalized": "edd roush"
   },
   {
     "rank": 132,
-    "name": "Brett Butler",
+    "name": "Brett Butler (1981-1997)",
     "stat": 2375,
     "normalized": "brett butler"
   },
   {
     "rank": 133,
-    "name": "Michael Young",
+    "name": "Michael Young (2000-2013)",
     "stat": 2375,
     "normalized": "michael young"
   },
   {
     "rank": 134,
-    "name": "Lou Whitaker",
+    "name": "Lou Whitaker (1977-1995)",
     "stat": 2369,
     "normalized": "lou whitaker"
   },
   {
     "rank": 135,
-    "name": "Alan Trammell",
+    "name": "Alan Trammell (1977-1996)",
     "stat": 2365,
     "normalized": "alan trammell"
   },
   {
     "rank": 136,
-    "name": "Carlton Fisk",
+    "name": "Carlton Fisk (1969-1993)",
     "stat": 2356,
     "normalized": "carlton fisk"
   },
   {
     "rank": 137,
-    "name": "Joe Judge",
+    "name": "Joe Judge (1915-1934)",
     "stat": 2352,
     "normalized": "joe judge"
   },
   {
     "rank": 138,
-    "name": "Orlando Cepeda",
+    "name": "Orlando Cepeda (1958-1974)",
     "stat": 2351,
     "normalized": "orlando cepeda"
   },
   {
     "rank": 139,
-    "name": "Billy Herman",
+    "name": "Billy Herman (1931-1947)",
     "stat": 2345,
     "normalized": "billy herman"
   },
   {
     "rank": 140,
-    "name": "Joe Torre",
+    "name": "Joe Torre (1960-1977)",
     "stat": 2342,
     "normalized": "joe torre"
   },
   {
     "rank": 141,
-    "name": "Paul Konerko",
+    "name": "Paul Konerko (1997-2014)",
     "stat": 2340,
     "normalized": "paul konerko"
   },
   {
     "rank": 142,
-    "name": "Barry Larkin",
+    "name": "Barry Larkin (1986-2004)",
     "stat": 2340,
     "normalized": "barry larkin"
   },
   {
     "rank": 143,
-    "name": "Bernie Williams",
+    "name": "Bernie Williams (1991-2006)",
     "stat": 2336,
     "normalized": "bernie williams"
   },
   {
     "rank": 144,
-    "name": "Andres Galarraga",
+    "name": "Andres Galarraga (1985-2004)",
     "stat": 2333,
     "normalized": "andres galarraga"
   },
   {
     "rank": 145,
-    "name": "Jim Thome",
+    "name": "Jim Thome (1991-2012)",
     "stat": 2328,
     "normalized": "jim thome"
   },
   {
     "rank": 146,
-    "name": "Edgar Renteria",
+    "name": "Edgar Renteria (1996-2011)",
     "stat": 2327,
     "normalized": "edgar renteria"
   },
   {
     "rank": 147,
-    "name": "Dave Concepcion",
+    "name": "Dave Concepcion (1970-1988)",
     "stat": 2326,
     "normalized": "dave concepcion"
   },
   {
     "rank": 148,
-    "name": "Jake Daubert",
+    "name": "Jake Daubert (1910-1924)",
     "stat": 2326,
     "normalized": "jake daubert"
   },
   {
     "rank": 149,
-    "name": "B. J. Surhoff",
+    "name": "B. J. Surhoff (1987-2005)",
     "stat": 2326,
     "normalized": "b j surhoff"
   },
   {
     "rank": 150,
-    "name": "Eddie Mathews",
+    "name": "Eddie Mathews (1952-1968)",
     "stat": 2315,
     "normalized": "eddie mathews"
   },
   {
     "rank": 151,
-    "name": "Jeff Bagwell",
+    "name": "Jeff Bagwell (1991-2005)",
     "stat": 2314,
     "normalized": "jeff bagwell"
   },
   {
     "rank": 152,
-    "name": "Jim Bottomley",
+    "name": "Jim Bottomley (1922-1937)",
     "stat": 2313,
     "normalized": "jim bottomley"
   },
   {
     "rank": 153,
-    "name": "Bobby Wallace",
+    "name": "Bobby Wallace (1894-1918)",
     "stat": 2309,
     "normalized": "bobby wallace"
   },
   {
     "rank": 154,
-    "name": "Kirby Puckett",
+    "name": "Kirby Puckett (1984-1995)",
     "stat": 2304,
     "normalized": "kirby puckett"
   },
   {
     "rank": 155,
-    "name": "Dan Brouthers",
+    "name": "Dan Brouthers (1879-1904)",
     "stat": 2303,
     "normalized": "dan brouthers"
   },
   {
     "rank": 156,
-    "name": "Aramis Ramirez",
+    "name": "Aramis Ramirez (1998-2015)",
     "stat": 2303,
     "normalized": "aramis ramirez"
   },
   {
     "rank": 157,
-    "name": "Kiki Cuyler",
+    "name": "Kiki Cuyler (1921-1938)",
     "stat": 2299,
     "normalized": "kiki cuyler"
   },
   {
     "rank": 158,
-    "name": "Charlie Grimm",
+    "name": "Charlie Grimm (1916-1936)",
     "stat": 2299,
     "normalized": "charlie grimm"
   },
   {
     "rank": 159,
-    "name": "Hugh Duffy",
+    "name": "Hugh Duffy (1888-1906)",
     "stat": 2293,
     "normalized": "hugh duffy"
   },
   {
     "rank": 160,
-    "name": "Joe Cronin",
+    "name": "Joe Cronin (1926-1945)",
     "stat": 2285,
     "normalized": "joe cronin"
   },
   {
     "rank": 161,
-    "name": "Gary Gaetti",
+    "name": "Gary Gaetti (1981-2000)",
     "stat": 2280,
     "normalized": "gary gaetti"
   },
   {
     "rank": 162,
-    "name": "Tony Fernandez",
+    "name": "Tony Fernandez (1983-2001)",
     "stat": 2276,
     "normalized": "tony fernandez"
   },
   {
     "rank": 163,
-    "name": "Carlos Lee",
+    "name": "Carlos Lee (1999-2012)",
     "stat": 2273,
     "normalized": "carlos lee"
   },
   {
     "rank": 164,
-    "name": "Tommy Corcoran",
+    "name": "Tommy Corcoran (1890-1907)",
     "stat": 2259,
     "normalized": "tommy corcoran"
   },
   {
     "rank": 165,
-    "name": "Bid McPhee",
+    "name": "Bid McPhee (1882-1899)",
     "stat": 2258,
     "normalized": "bid mcphee"
   },
   {
     "rank": 166,
-    "name": "Patsy Donovan",
+    "name": "Patsy Donovan (1890-1907)",
     "stat": 2256,
     "normalized": "patsy donovan"
   },
   {
     "rank": 167,
-    "name": "Jimmy Dykes",
+    "name": "Jimmy Dykes (1918-1939)",
     "stat": 2256,
     "normalized": "jimmy dykes"
   },
   {
     "rank": 168,
-    "name": "Willie McGee",
+    "name": "Willie McGee (1982-1999)",
     "stat": 2254,
     "normalized": "willie mcgee"
   },
   {
     "rank": 169,
-    "name": "Ron Santo",
+    "name": "Ron Santo (1960-1974)",
     "stat": 2254,
     "normalized": "ron santo"
   },
   {
     "rank": 170,
-    "name": "Jose Cruz",
+    "name": "Jose Cruz (1970-1988)",
     "stat": 2251,
     "normalized": "jose cruz"
   },
   {
     "rank": 171,
-    "name": "Marquis Grissom",
+    "name": "Marquis Grissom (1989-2005)",
     "stat": 2251,
     "normalized": "marquis grissom"
   },
   {
     "rank": 172,
-    "name": "Bert Campaneris",
+    "name": "Bert Campaneris (1964-1983)",
     "stat": 2249,
     "normalized": "bert campaneris"
   },
   {
     "rank": 173,
-    "name": "Edgar Martinez",
+    "name": "Edgar Martinez (1987-2004)",
     "stat": 2247,
     "normalized": "edgar martinez"
   },
   {
     "rank": 174,
-    "name": "John Olerud",
+    "name": "John Olerud (1989-2005)",
     "stat": 2239,
     "normalized": "john olerud"
   },
   {
     "rank": 175,
-    "name": "Mike Schmidt",
+    "name": "Mike Schmidt (1972-1989)",
     "stat": 2234,
     "normalized": "mike schmidt"
   },
   {
     "rank": 176,
-    "name": "Willie Stargell",
+    "name": "Willie Stargell (1962-1982)",
     "stat": 2232,
     "normalized": "willie stargell"
   },
   {
     "rank": 177,
-    "name": "Fred Tenney",
+    "name": "Fred Tenney (1894-1911)",
     "stat": 2231,
     "normalized": "fred tenney"
   },
   {
     "rank": 178,
-    "name": "Joe Sewell",
+    "name": "Joe Sewell (1920-1933)",
     "stat": 2226,
     "normalized": "joe sewell"
   },
   {
     "rank": 179,
-    "name": "Graig Nettles",
+    "name": "Graig Nettles (1967-1988)",
     "stat": 2225,
     "normalized": "graig nettles"
   },
   {
     "rank": 180,
-    "name": "Darrell Evans",
+    "name": "Darrell Evans (1969-1989)",
     "stat": 2223,
     "normalized": "darrell evans"
   },
   {
     "rank": 181,
-    "name": "Joe Kelley",
+    "name": "Joe Kelley (1891-1908)",
     "stat": 2220,
     "normalized": "joe kelley"
   },
   {
     "rank": 182,
-    "name": "Juan Pierre",
+    "name": "Juan Pierre (2000-2013)",
     "stat": 2217,
     "normalized": "juan pierre"
   },
   {
     "rank": 183,
-    "name": "Joe DiMaggio",
+    "name": "Joe DiMaggio (1936-1951)",
     "stat": 2214,
     "normalized": "joe dimaggio"
   },
   {
     "rank": 184,
-    "name": "Joe Kuhel",
+    "name": "Joe Kuhel (1930-1947)",
     "stat": 2212,
     "normalized": "joe kuhel"
   },
   {
     "rank": 185,
-    "name": "Willie McCovey",
+    "name": "Willie McCovey (1959-1980)",
     "stat": 2211,
     "normalized": "willie mccovey"
   },
   {
     "rank": 186,
-    "name": "Willie Randolph",
+    "name": "Willie Randolph (1975-1992)",
     "stat": 2210,
     "normalized": "willie randolph"
   },
   {
     "rank": 187,
-    "name": "Willie Wilson",
+    "name": "Willie Wilson (1976-1994)",
     "stat": 2207,
     "normalized": "willie wilson"
   },
   {
     "rank": 188,
-    "name": "Jason Kendall",
+    "name": "Jason Kendall (1996-2010)",
     "stat": 2195,
     "normalized": "jason kendall"
   },
   {
     "rank": 189,
-    "name": "Stan Hack",
+    "name": "Stan Hack (1932-1947)",
     "stat": 2193,
     "normalized": "stan hack"
   },
   {
     "rank": 190,
-    "name": "Bill Terry",
+    "name": "Bill Terry (1923-1936)",
     "stat": 2193,
     "normalized": "bill terry"
   },
   {
     "rank": 191,
-    "name": "Cecil Cooper",
+    "name": "Cecil Cooper (1971-1987)",
     "stat": 2192,
     "normalized": "cecil cooper"
   },
   {
     "rank": 192,
-    "name": "Larry Bowa",
+    "name": "Larry Bowa (1970-1985)",
     "stat": 2191,
     "normalized": "larry bowa"
   },
   {
     "rank": 193,
-    "name": "Joe Carter",
+    "name": "Joe Carter (1983-1998)",
     "stat": 2184,
     "normalized": "joe carter"
   },
   {
     "rank": 194,
-    "name": "Keith Hernandez",
+    "name": "Keith Hernandez (1974-1990)",
     "stat": 2182,
     "normalized": "keith hernandez"
   },
   {
     "rank": 195,
-    "name": "Will Clark",
+    "name": "Will Clark (1986-2000)",
     "stat": 2176,
     "normalized": "will clark"
   },
   {
     "rank": 196,
-    "name": "Pee Wee Reese",
+    "name": "Pee Wee Reese (1940-1958)",
     "stat": 2170,
     "normalized": "pee wee reese"
   },
   {
     "rank": 197,
-    "name": "Sherry Magee",
+    "name": "Sherry Magee (1904-1919)",
     "stat": 2169,
     "normalized": "sherry magee"
   },
   {
     "rank": 198,
-    "name": "Yadier Molina",
+    "name": "Yadier Molina (2004-2022)",
     "stat": 2168,
     "normalized": "yadier molina"
   },
   {
     "rank": 199,
-    "name": "Dick Bartell",
+    "name": "Dick Bartell (1927-1946)",
     "stat": 2165,
     "normalized": "dick bartell"
   },
   {
     "rank": 200,
-    "name": "Billy Hamilton",
+    "name": "Billy Hamilton (1888-1901)",
     "stat": 2164,
     "normalized": "billy hamilton"
   }
