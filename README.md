@@ -1,6 +1,6 @@
 # Five Tool: The Baseball Knowledge Engine
 
-**Live Demo:** [Insert Vercel Link Here]  
+**Live Demo:** [Vercel Live Demo](https://cttp.vercel.app/)
 **Status:** MVP (Phase 1)  
 **Strategy:** [Read the Product Vision](./docs/strategy/001-north-star-vision.md)
 
