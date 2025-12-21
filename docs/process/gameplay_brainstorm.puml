@@ -1,0 +1,75 @@
+@startmindmap brainstorm
+* Feature Backlog
+** Game Configuration
+*** Stat Selector (HR, Hit, Ks, ERA, etc)
+**** Career Hits
+**** Career HR
+**** Career Batting Average
+**** Career WAR
+**** Career Strikeouts (Pitching)
+**** Career Wins (Pitching)
+**** Career Saves
+**** Innings Pitched
+**** Career Stolen Bases
+**** All-Star Appearances
+**** Career Strikeouts (Hitting)
+**** Career RBIs
+**** Most Teams Played For
+**** Career Games Played
+**** Career Runs Scored
+**** Most Playoff Games Played
+*** List Size
+**** Top 50
+**** Top 100
+**** Top 150
+**** Top 200
+*** Era Filter (Years Selector)
+*** Team Filter
+**** Only played for x team
+**** Only played for single team
+**** Never played for x team
+**** Played for at least x number of teams
+*** Achievements Filter
+**** MVPs Only
+**** Cy Youngs Only
+**** All-Star Appearances Only
+**** Gold Glove Only
+**** Silver Slugger Only
+**** ROTY Only
+**** In Hall of Fame
+*** Other Filters
+**** Born In USA
+**** Born Outside USA
+**** First Round Draft Pick
+*** Preset Modes / Quick Play
+**** Top 100 Hits
+**** Top 100 HR
+**** Top 100 Career Batting Average
+**** Top 100 Career Strikeouts (Pitching)
+**** Top 100 Career Wins (Pitching)
+**** Top 100 Career WAR
+*** Player Count
+**** Solo
+**** 2 Players
+**** 3 Players
+*** Valid Game Configuration Checker
+**** Can the game be created with the chosen parameters?
+-- UX & Polish
+--- Screens
+---- Homepage
+----- Create New Game
+----- Contact / About
+---- Gameplay Screen
+----- Guess Entry Box
+----- Hit/Miss Indicator
+----- Tracking of Hits & Misses
+----- Player Scores
+----- Restart Game
+----- Undo Last Action
+---- Post-Game Screen
+----- Game Summary
+------ Final Scores
+------ Winner Celebrated!
+------ Thanks For Playing!
+------ Create New Game Button
+@endmindmap
